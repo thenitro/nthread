@@ -70,8 +70,6 @@ package nthread {
 				return;
 			}
 			
-			trace("Threader.addThread(pCallback, pArguments)", pArguments);
-			
 			var thread:Thread = Thread.NEW;
 				
 				thread.method    = pCallback;
