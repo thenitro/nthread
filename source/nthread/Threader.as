@@ -1,6 +1,7 @@
 package nthread {
 	import flash.errors.IllegalOperationError;
-	import flash.utils.getTimer;
+    import flash.utils.Dictionary;
+    import flash.utils.getTimer;
 	
 	import npooling.Pool;
 	
