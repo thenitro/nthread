@@ -1,14 +1,13 @@
 package nthread {
-	import flash.errors.IllegalOperationError;
-    import flash.utils.Dictionary;
+    import flash.errors.IllegalOperationError;
     import flash.utils.getTimer;
-	
-	import npooling.Pool;
-	
-	import starling.events.Event;
-	import starling.events.EventDispatcher;
-	
-	public class Threader extends EventDispatcher {
+
+    import npooling.Pool;
+
+    import starling.events.Event;
+    import starling.events.EventDispatcher;
+
+    public class Threader extends EventDispatcher {
 		private static var _pool:Pool = Pool.getInstance();
 		
 		private var _threadsStack:Vector.<Thread>;
@@ -90,7 +89,6 @@ package nthread {
 		private function manageThreads():void {
 			var startTime:uint = getTimer();
 			var runTime:uint   = 0;
-			var stackSize:uint = currentThreadSize;
 			
 			var arguments:Array;
 			
