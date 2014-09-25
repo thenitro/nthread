@@ -1,4 +1,6 @@
 package nthread {
+    import dragonBones.Bone;
+
     import flash.errors.IllegalOperationError;
     import flash.utils.getTimer;
 
@@ -77,6 +79,29 @@ package nthread {
 			
 			_threadsStack.push(thread);
 		};
+
+        public function removeThread(pCallback:Function):void {
+            var indexes:Vector.<int> = new Vector.<int>();
+
+            var filterClosure:Function = function(pThread:Thread,
+                                                  pIndex:int,
+                                                  pVector:Vector.<Thread>):Boolean {
+                if (pThread.method == pCallback) {
+                    indexes.push(pIndex);
+
+                    return true;
+                }
+
+                return false;
+            };
+
+            var threads:Vector.<Thread> = _threadsStack.filter(filterClosure);
+
+            for each (var index:int in indexes) {
+                _pool.put(_threadsStack[index]);
+                _threadsStack.splice(index, 1);
+            }
+        };
 		
 		public function update():void {
 			if (!_inited) {
