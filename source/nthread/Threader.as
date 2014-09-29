@@ -1,6 +1,4 @@
 package nthread {
-    import dragonBones.Bone;
-
     import flash.errors.IllegalOperationError;
     import flash.utils.getTimer;
 
